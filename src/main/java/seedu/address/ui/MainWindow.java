@@ -119,7 +119,7 @@ public class MainWindow extends UiPart<Stage> {
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
-        CommandBox commandBox = new CommandBox(this::executeCommand);
+        CommandBox commandBox = new CommandBox(this::executeCommand, logic.getAutocompleteManager());
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
     }
 
@@ -157,7 +157,8 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private void handleExit() {
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY(), logic.getGuiSettings().getAttributeOrder());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), logic.getGuiSettings().getAttributeOrder(),
+                logic.getGuiSettings().getHiddenAttributes());
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();

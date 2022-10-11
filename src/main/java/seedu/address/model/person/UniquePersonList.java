@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,9 +21,9 @@ import seedu.address.model.tag.Tag;
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
  * A person is considered unique by comparing using {@code Person#isSamePerson(Person)}. As such, adding and updating of
- * persons uses Person#isSamePerson(Person) for equality so as to ensure that the person being added or updated is
- * unique in terms of identity in the UniquePersonList. However, the removal of a person uses Person#equals(Object) so
- * as to ensure that the person with exactly the same fields will be removed.
+ * persons uses Person#isSamePerson(Person) for equality to ensure that the person being added or updated is
+ * unique in terms of identity in the UniquePersonList. However, the removal of a person uses Person#equals(Object) to
+ * ensure that the person with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
  *
@@ -129,41 +131,99 @@ public class UniquePersonList implements Iterable<Person> {
 
     /**
      * Sorts the list by name, alphabetically.
+     * Sorts the address book by name in alphabetical order.
+     *
+     * @param isReverse Whether the sorting should be in reverse order
      */
-    public void sortByName() {
-        SortedList<Person> sorted = internalList.sorted((curr, next) -> curr.getName().compareTo(next.getName()));
+    public void sortByName(Boolean isReverse) {
+        SortedList<Person> sorted;
+        if (!isReverse) {
+            sorted = internalList.sorted((curr, next) -> curr.getName().compareTo(next.getName()));
+        } else {
+            sorted = internalList.sorted((curr, next) -> -1 * (curr.getName().compareTo(next.getName())));
+        }
         internalList.setAll(sorted);
     }
 
     /**
-     * Sorts the list by phone number, in increasing order.
+     * Sorts the address book by phone number in increasing order.
+     *
+     * @param isReverse Whether the sorting should be in reverse order
      */
-    public void sortByPhone() {
-        SortedList<Person> sorted = internalList.sorted((curr, next) -> curr.getPhone().compareTo(next.getPhone()));
+    public void sortByPhone(Boolean isReverse) {
+        SortedList<Person> sorted;
+        if (!isReverse) {
+            sorted = internalList.sorted((curr, next) -> curr.getPhone().compareTo(next.getPhone()));
+        } else {
+            sorted = internalList.sorted((curr, next) -> -1 * (curr.getPhone().compareTo(next.getPhone())));
+        }
         internalList.setAll(sorted);
     }
 
     /**
-     * Sorts the list by email, alphabetically.
+     * Sorts the address book by email in alphabetical order.
+     *
+     * @param isReverse Whether the sorting should be in reverse order
      */
-    public void sortByEmail() {
-        SortedList<Person> sorted = internalList.sorted((curr, next) -> curr.getEmail().compareTo(next.getEmail()));
+    public void sortByEmail(Boolean isReverse) {
+        SortedList<Person> sorted;
+        if (!isReverse) {
+            sorted = internalList.sorted((curr, next) -> curr.getEmail().compareTo(next.getEmail()));
+        } else {
+            sorted = internalList.sorted((curr, next) -> -1 * (curr.getEmail().compareTo(next.getEmail())));
+        }
         internalList.setAll(sorted);
     }
 
     /**
-     * Sorts the list by address, alphabetically.
+     * Sorts the address book by address in alphabetical order.
+     *
+     * @param isReverse Whether the sorting should be in reverse order
      */
-    public void sortByAddress() {
-        SortedList<Person> sorted = internalList.sorted((curr, next) -> curr.getAddress().compareTo(next.getAddress()));
+    public void sortByAddress(Boolean isReverse) {
+        SortedList<Person> sorted;
+        if (!isReverse) {
+            sorted = internalList.sorted((curr, next) -> curr.getAddress().compareTo(next.getAddress()));
+        } else {
+            sorted = internalList.sorted((curr, next) -> -1 * (curr.getAddress().compareTo(next.getAddress())));
+        }
         internalList.setAll(sorted);
     }
 
     /**
-     * Sorts the list in reverse order.
+     * Sorts the address book by a tag.
+     * Contacts with the tag appear before those without the tag.
+     *
+     * @param tag       The tag to sort with
+     * @param isReverse Whether the sorting should be in reverse order
      */
-    public void reverseSort() {
-        FXCollections.reverse(internalList);
+    public void sortByTag(Tag tag, Boolean isReverse) {
+        SortedList<Person> sorted;
+        int flipIfReversed = isReverse ? -1 : 1;
+
+        sorted = internalList.sorted((curr, next) -> {
+            boolean currContains = curr.getTags().contains(tag);
+            boolean nextContains = next.getTags().contains(tag);
+            if (currContains && !nextContains) {
+                return -1 * flipIfReversed;
+            } else if (!currContains && nextContains) {
+                return 1 * flipIfReversed;
+            } else {
+                return 0;
+            }
+        });
+        internalList.setAll(sorted);
+    }
+
+    /**
+     * Returns a set of unique {@code Name} in the address book.
+     *
+     * @return a set of unique {@code Name}.
+     */
+    public TreeSet<String> getUniqueNames() {
+        TreeSet<String> uniqueNames = new TreeSet<>();
+        uniqueNames.addAll(internalList.stream().map(person -> person.getName().fullName).collect(Collectors.toList()));
+        return uniqueNames;
     }
 
     /**

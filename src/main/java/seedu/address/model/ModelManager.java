@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.TreeSet;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -46,14 +47,14 @@ public class ModelManager implements Model {
     //=========== UserPrefs ==================================================================================
 
     @Override
-    public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-        requireNonNull(userPrefs);
-        this.userPrefs.resetData(userPrefs);
+    public ReadOnlyUserPrefs getUserPrefs() {
+        return userPrefs;
     }
 
     @Override
-    public ReadOnlyUserPrefs getUserPrefs() {
-        return userPrefs;
+    public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
+        requireNonNull(userPrefs);
+        this.userPrefs.resetData(userPrefs);
     }
 
     @Override
@@ -81,13 +82,13 @@ public class ModelManager implements Model {
     //=========== AddressBook ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+    public ReadOnlyAddressBook getAddressBook() {
+        return addressBook;
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
+    public void setAddressBook(ReadOnlyAddressBook addressBook) {
+        this.addressBook.resetData(addressBook);
     }
 
     @Override
@@ -131,28 +132,33 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void sortByName() {
-        addressBook.sortByName();
+    public void sortByName(Boolean isReverse) {
+        addressBook.sortByName(isReverse);
     }
 
     @Override
-    public void sortByPhone() {
-        addressBook.sortByPhone();
+    public void sortByPhone(Boolean isReverse) {
+        addressBook.sortByPhone(isReverse);
     }
 
     @Override
-    public void sortByEmail() {
-        addressBook.sortByEmail();
+    public void sortByEmail(Boolean isReverse) {
+        addressBook.sortByEmail(isReverse);
     }
 
     @Override
-    public void sortByAddress() {
-        addressBook.sortByAddress();
+    public void sortByAddress(Boolean isReverse) {
+        addressBook.sortByAddress(isReverse);
     }
 
     @Override
-    public void reverseSort() {
-        addressBook.reverseSort();
+    public void sortByTag(Tag tag, Boolean isReverse) {
+        addressBook.sortByTag(tag, isReverse);
+    }
+
+    @Override
+    public TreeSet<String> getUniqueNames() {
+        return addressBook.getUniqueNames();
     }
 
     //=========== Filtered Person List Accessors =============================================================
