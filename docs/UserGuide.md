@@ -208,7 +208,7 @@ Format: `tag create t/TAG`
 
 Steps to take:
 1. Input `tag create t/Test` into the Command box and press `Enter` on your keyboard. 
-2. You should now see `New Tag added: [Test]` in the Command result box just like the image below.
+2. You should now see `New Tag created: [Test]` in the Command result box just like the image below.
 
 (insert image of a successful creation of the `Test` tag)
 
