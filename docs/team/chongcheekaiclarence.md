@@ -5,7 +5,7 @@ title: Chong Chee Kai Clarence's Project Portfolio Page
 
 ### Project: SoConnect
 
-SoConnect is a desktop app for NUS SoC students to manage their contacts, optimised for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+SoConnect is a **contact management and task management desktop app** that aims to help NUS SoC students stay better connected to their school life, both in terms of social connections and school tasks. To better cater to NUS SoC students, SoConnect is **optimized for use via a Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). SoConnect utilises JavaFx for its user interface and most of the codes are written in Java, taking up 42kLoC.
 
 Given below are my contributions to the project.
 
@@ -33,7 +33,7 @@ Given below are my contributions to the project.
       * Highlights: This enhancement affects `tag edit` and `tag remove` commands. It required an in-depth analysis of design alternatives. The implementation was challenging as it required changes to `edit` command.
 * **Contributions to documentation**:
     * User Guide:
-        * Added documentation for the features `tag create`, `tag edit`, `tag add`, `tag remove` and `tag delete`.
+        * Added documentation for the features `tag create`, `tag add`, `tag edit`, `tag remove` and `tag delete`.
     * Developer Guide:
         * Added documentation of implementation of `tag add` and `tag edit` features.
         * Added UML diagram for `tag add` and `tag edit` features.
