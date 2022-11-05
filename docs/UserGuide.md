@@ -210,13 +210,13 @@ Steps to take:
 1. Input `tag create t/Test` into the Command box and press `Enter` on your keyboard. 
 2. You should now see `New Tag created: [Test]` in the Command result box just like the image below.
 
-(insert image of a successful creation of the `Test` tag)
+   (insert image of a successful creation of the `Test` tag)
 
 3. Great! You have successfully added the first `TAG` you have made. Now, you can start utilising the other tag features.
 
 ### Adding a Tag to a Contact: `tag add`
 
-You can now add a `TAG` from the tag list to a contact.
+You can add a `TAG` from the tag list to a contact.
 * `Coming soon in v1.5`, we will upgrade `tag add` to add tags to todos.
 
 Format: `tag add INDEX t/TAG`
@@ -234,21 +234,21 @@ Refer to [`Creating a Tag`](#creating-a-tag-tag-create) on how to create a tag.
 Steps to take:
 1. Input `tag add 1 t/Test` into the Command box and press `Enter` on your keyboard.
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
+   <div markdown="block" class="alert alert-info">
+   **:information_source: Note:** 
 
-This example is a follow-up of [`Creating a Tag`](#creating-a-tag-tag-create). Feel free to replace `1` and Test` with the contact index and tag of your choice.
-</div>
+   This example is a follow-up of [`Creating a Tag`](#creating-a-tag-tag-create). Feel free to replace `1` and `Test` with the contact index and tag of your choice.
+   </div>
 
 2. You should now see `Tag added: [Test]` in the Command result box just like the image below.
 
-(insert image of a successful addition of the `Test` tag to contact `1`)
+   (insert image of a successful addition of the `Test` tag to contact `1`)
 
 3. Awesome! You have successfully added the `Test` tag to the first contact in your contact list.
 
 ### Editing a Tag: `tag edit`
 
-If you make a mistake or want to update your tags, you can simply update them accordingly.
+If you make a mistake or want to update your tags, you can simply update them with this command.
 
 Format: `tag edit t/TAG1 t/TAG2`
 
@@ -256,26 +256,26 @@ Format: `tag edit t/TAG1 t/TAG2`
 **:information_source: Note:** 
 
 * The new Tag must not have the same name as any other existing tags.
-* `TAG1` is the current name of the tag and `TAG2` is the new name of the tag.
+* `TAG1` represents the current name of the tag and `TAG2` represents the new name of the tag.
 
 </div>
 
 Steps to take:
 1. Input `tag edit t/Test t/Test2` into the Command box and press `Enter` on your keyboard.
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
+   <div markdown="block" class="alert alert-info">
+   **:information_source: Note:** 
 
-This example is a follow-up of [`Adding a tag`](#adding-a-tag-to-a-contact-tag-add). Feel free to replace `Test` with any existing tag and `Test2` with a new name for the tag.
-</div>
+   This example is a follow-up of [`Adding a tag`](#adding-a-tag-to-a-contact-tag-add). Feel free to replace `Test` with any existing tag and `Test2` with a new name for the tag.
+   </div>
 
 2. You should now see `Tag has changed from [Test] to [Test2]` in the Command result box. You can also refer to the Before and After comparison below. Within each contact, those with the `Test` tag, will now display `Test2` instead.
 
-Before:
-(insert image a contact with `Test` tag)
+   Before:
+   (insert image a contact with `Test` tag)
 
-After:
-(insert image of the same contact with `Test2` tag instead of `Test`)
+   After:
+   (insert image of the same contact with `Test2` tag instead of `Test`)
 
 3. Fantastic! You have successfully changed the `Test` tag to the `Test2` tag.
 
@@ -289,15 +289,15 @@ Format: `tag remove INDEX t/TAG`
 Steps to take:
 1. Input `tag remove 1 t/Test2` into the Command box and press `Enter` on your keyboard.
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
+   <div markdown="block" class="alert alert-info">
+   **:information_source: Note:** 
 
-This example is a follow-up of [`Editing a Tag`](#editing-a-tag-tag-edit). Feel free to replace `1` and `Test2` with the index of any contact and a tag of that contact.
-</div>
+   This example is a follow-up of [`Editing a Tag`](#editing-a-tag-tag-edit). Feel free to replace `1` and `Test2` with the index of any contact and a tag of that contact.
+   </div>
 
 2. You should now see `Tag removed: [Test2]` in the Command result box just like the image below.
 
-(insert image of contact `1` without the `Test2` tag)
+   (insert image of contact `1` without the `Test2` tag)
 
 3. Nice! You have successfully removed a tag from a contact.
 
@@ -314,15 +314,15 @@ Format: `tag delete t/TAG`
 Steps to take:
 1. Input `tag delete t/Test2` in the Command box and press `Enter` on your keyboard.
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
+   <div markdown="block" class="alert alert-info">
+   **:information_source: Note:** 
 
-This example is a follow-up of [`removing a Tag`](#removing-a-tag-from-a-contact-tag-remove). Feel free to replace `Test2` with any existing tag.
-</div>
+   This example is a follow-up of [`removing a Tag`](#removing-a-tag-from-a-contact-tag-remove). Feel free to replace `Test2` with any existing tag.
+   </div>
 
 2. You should now see `Tag deleted: [Test2]` in the Command result box just like the image below.
 
-(insert successful deletion og `Test2` tag)
+   (insert successful deletion of `Test2` tag)
 
 3. Wonderful! You have successfully deleted a tag.
 
